@@ -26,7 +26,6 @@ export class AddTaskComponent implements OnInit, OnDestroy {
   private resources: ResourceToAdd[] = [];
 
   membersList: Observable<MemberToDisplay[]>;
-  private taskId: string;
   subscriptions: Subscription[] = [];
   deliveries: DeliveryToDisplay[] = [
     {name: 'Документ', taskId: undefined, id: 1},
@@ -48,7 +47,6 @@ export class AddTaskComponent implements OnInit, OnDestroy {
 
 
   ngOnInit(): void {
-    this.taskId = this.route.snapshot.paramMap.get('taskId');
     this.initForm();
     this.membersList = this.memberService.getAll();
     this.subscribeResourceTriggers();
