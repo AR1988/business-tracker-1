@@ -24,7 +24,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("/api/resources")
+@RequestMapping("/api/resource")
 public class ResourceController {
 
     private final ResourceService resourceService;

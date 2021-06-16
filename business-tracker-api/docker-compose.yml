@@ -12,5 +12,5 @@ services:
     volumes:
       - ./src/main/resources/db.migration:/docker-entrypoint-initdb.d
     ports:
-      - 5432:5432
+      - 5432:c
 

@@ -40,13 +40,13 @@ export class MainComponent implements OnInit, OnDestroy {
     const getAllKpisSubscription = this.kpiService.getAll().subscribe(value => this.kpis = value);
     const getAllMileStonesSubscription = this.mileStoneService.getAll().subscribe(value => this.mileStones = value);
 
-    const getAllActiveTasksSubscription = this.taskService.getAllByParams('true', 'active').subscribe(value => this.activeTasks = value);
+    const getAllActiveTasks: Subscription = this.taskService.getAllByParams('true', 'active').subscribe(value => this.activeTasks = value);
     const getAllMembersSubscription = this.memberService.getAll().subscribe(value => this.members = value);
 
     this.subscriptions.push(getAllKpisSubscription,
       getAllRoadMapsSubscription,
       getAllMileStonesSubscription,
-      getAllActiveTasksSubscription,
+      getAllActiveTasks,
       getAllMembersSubscription);
   }
 

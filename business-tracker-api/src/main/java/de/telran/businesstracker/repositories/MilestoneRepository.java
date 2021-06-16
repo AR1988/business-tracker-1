@@ -9,4 +9,6 @@ import java.util.List;
 @Repository
 public interface MilestoneRepository extends CrudRepository<Milestone, Long> {
     List<Milestone> findAll();
+
+    List<Milestone> findAllByRoadmapProjectId(Long projectId);
 }

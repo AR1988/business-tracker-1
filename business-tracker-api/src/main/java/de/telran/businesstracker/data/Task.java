@@ -27,6 +27,7 @@ public class Task {
     private String name;
 
     private Boolean finished;
+    private Boolean active;
 
     @ManyToOne
     private Milestone milestone;
