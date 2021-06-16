@@ -1,7 +1,7 @@
 package de.telran.businesstracker.mapper;
 
-import de.telran.businesstracker.data.Member;
-import de.telran.businesstracker.dto.MemberDto;
+import de.telran.businesstracker.model.Member;
+import de.telran.businesstracker.controller.dto.MemberDto;
 import org.springframework.stereotype.Component;
 
 @Component

@@ -1,7 +1,7 @@
 package de.telran.businesstracker.repositories;
 
 
-import de.telran.businesstracker.data.User;
+import de.telran.businesstracker.model.User;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

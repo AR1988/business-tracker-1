@@ -1,7 +1,7 @@
 package de.telran.businesstracker.controller;
 
-import de.telran.businesstracker.data.Member;
-import de.telran.businesstracker.dto.MemberDto;
+import de.telran.businesstracker.model.Member;
+import de.telran.businesstracker.controller.dto.MemberDto;
 import de.telran.businesstracker.mapper.MemberMapper;
 import de.telran.businesstracker.service.MemberService;
 import org.springframework.http.HttpStatus;

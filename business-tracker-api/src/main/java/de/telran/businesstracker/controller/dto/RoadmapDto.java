@@ -1,21 +1,22 @@
-package de.telran.businesstracker.dto;
+package de.telran.businesstracker.controller.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
+
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class TaskDto {
+public class RoadmapDto {
 
     public Long id;
 
     public String name;
 
-    public Boolean finished;
+    public LocalDate startDate;
 
-    public Long milestoneId;
+    public Long projectId;
 
-    public Long memberId;
 }

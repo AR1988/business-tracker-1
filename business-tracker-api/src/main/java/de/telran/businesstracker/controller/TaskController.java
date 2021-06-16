@@ -1,26 +1,30 @@
 package de.telran.businesstracker.controller;
 
-import de.telran.businesstracker.data.Milestone;
-import de.telran.businesstracker.data.Task;
-import de.telran.businesstracker.dto.TaskDto;
+import de.telran.businesstracker.model.Task;
+import de.telran.businesstracker.controller.dto.TaskDto;
 import de.telran.businesstracker.mapper.TaskMapper;
 import de.telran.businesstracker.service.TaskService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.util.MultiValueMap;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.HttpClientErrorException;
 
 import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("/api/task")
+@RequestMapping("/api/tasks")
 public class TaskController {
 
     private final TaskService taskService;
@@ -58,25 +62,6 @@ public class TaskController {
     public TaskDto getTask(@PathVariable Long id) {
         Task task = taskService.getById(id);
         return taskMapper.toDto(task);
-    }
-
-    @GetMapping("/by")
-    public List<TaskDto> getKpiByParam(@RequestParam Map<String, String> params) {
-        List<Task> tasks = taskService.getAll();
-        String active = params.get("active");
-        String roadMapId = params.get("roadMapId");
-        String taskId = params.get("taskId");
-        if (active != null) {
-            boolean isActive = Boolean.parseBoolean(active);
-            return tasks.stream().filter(task -> task.getActive() == isActive).map(taskMapper::toDto).collect(Collectors.toList());
-        } else if (roadMapId != null) {
-            long id = Long.parseLong(roadMapId);
-            return tasks.stream().filter(task -> task.getMilestone().getRoadmap().getId() == id).map(taskMapper::toDto).collect(Collectors.toList());
-        } else if (taskId != null) {
-            long id = Long.parseLong(taskId);
-            return tasks.stream().filter(task -> task.getId() == id).map(taskMapper::toDto).collect(Collectors.toList());
-        }
-        return new ArrayList<>();
     }
 
     @DeleteMapping("/{id}")

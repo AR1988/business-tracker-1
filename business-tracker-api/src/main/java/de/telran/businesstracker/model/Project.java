@@ -1,4 +1,4 @@
-package de.telran.businesstracker.data;
+package de.telran.businesstracker.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -17,7 +17,7 @@ import javax.persistence.SequenceGenerator;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Resource {
+public class Project {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sequenceGenerator")
@@ -26,10 +26,7 @@ public class Resource {
 
     private String name;
 
-    private Integer hours;
-
-    private Double cost;
-
     @ManyToOne
-    private Task task;
+    private User user;
+
 }

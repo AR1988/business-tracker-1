@@ -1,7 +1,7 @@
 package de.telran.businesstracker.service;
 
-import de.telran.businesstracker.data.Resource;
-import de.telran.businesstracker.data.Task;
+import de.telran.businesstracker.model.Resource;
+import de.telran.businesstracker.model.Task;
 import de.telran.businesstracker.repositories.ResourceRepository;
 import de.telran.businesstracker.repositories.TaskRepository;
 import org.springframework.stereotype.Service;

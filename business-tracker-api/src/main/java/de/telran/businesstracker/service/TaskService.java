@@ -1,8 +1,8 @@
 package de.telran.businesstracker.service;
 
-import de.telran.businesstracker.data.Member;
-import de.telran.businesstracker.data.Milestone;
-import de.telran.businesstracker.data.Task;
+import de.telran.businesstracker.model.Member;
+import de.telran.businesstracker.model.Milestone;
+import de.telran.businesstracker.model.Task;
 import de.telran.businesstracker.repositories.MemberRepository;
 import de.telran.businesstracker.repositories.MilestoneRepository;
 import de.telran.businesstracker.repositories.TaskRepository;

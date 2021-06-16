@@ -1,7 +1,7 @@
 package de.telran.businesstracker.controller;
 
-import de.telran.businesstracker.data.Project;
-import de.telran.businesstracker.dto.ProjectDto;
+import de.telran.businesstracker.model.Project;
+import de.telran.businesstracker.controller.dto.ProjectDto;
 import de.telran.businesstracker.mapper.ProjectMapper;
 import de.telran.businesstracker.service.ProjectService;
 import org.springframework.http.HttpStatus;

@@ -1,20 +1,21 @@
 package de.telran.businesstracker.service;
 
-import de.telran.businesstracker.data.Member;
-import de.telran.businesstracker.data.Milestone;
-import de.telran.businesstracker.data.Project;
-import de.telran.businesstracker.data.Roadmap;
-import de.telran.businesstracker.data.Task;
-import de.telran.businesstracker.data.User;
+import de.telran.businesstracker.model.Member;
+import de.telran.businesstracker.model.Milestone;
+import de.telran.businesstracker.model.Project;
+import de.telran.businesstracker.model.Roadmap;
+import de.telran.businesstracker.model.Task;
+import de.telran.businesstracker.model.User;
 import de.telran.businesstracker.repositories.MemberRepository;
 import de.telran.businesstracker.repositories.MilestoneRepository;
 import de.telran.businesstracker.repositories.TaskRepository;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.ArgumentCaptor;
 import org.mockito.Captor;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.springframework.boot.test.context.SpringBootTest;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import javax.persistence.EntityNotFoundException;
 import java.time.LocalDate;
@@ -30,7 +31,7 @@ import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
-@SpringBootTest
+@ExtendWith(MockitoExtension.class)
 class TaskServiceTest {
 
     @Mock

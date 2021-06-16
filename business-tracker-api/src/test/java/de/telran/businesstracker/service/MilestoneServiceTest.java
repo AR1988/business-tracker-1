@@ -1,17 +1,18 @@
 package de.telran.businesstracker.service;
 
-import de.telran.businesstracker.data.Milestone;
-import de.telran.businesstracker.data.Project;
-import de.telran.businesstracker.data.Roadmap;
-import de.telran.businesstracker.data.User;
+import de.telran.businesstracker.model.Milestone;
+import de.telran.businesstracker.model.Project;
+import de.telran.businesstracker.model.Roadmap;
+import de.telran.businesstracker.model.User;
 import de.telran.businesstracker.repositories.MilestoneRepository;
 import de.telran.businesstracker.repositories.RoadmapRepository;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.ArgumentCaptor;
 import org.mockito.Captor;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.springframework.boot.test.context.SpringBootTest;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import javax.persistence.EntityNotFoundException;
 import java.time.LocalDate;
@@ -27,7 +28,7 @@ import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
-@SpringBootTest
+@ExtendWith(MockitoExtension.class)
 class MilestoneServiceTest {
 
     @Mock
@@ -96,8 +97,6 @@ class MilestoneServiceTest {
         User user = new User(2L);
         Project project = new Project(4L, "Great project", user);
         Roadmap roadmap = new Roadmap(3L, "Roadmap", LocalDate.now(), project);
-
-        when(roadmapRepository.findById(roadmap.getId())).thenReturn(Optional.of(roadmap));
 
         Milestone milestone = Milestone.builder()
                 .id(1L)

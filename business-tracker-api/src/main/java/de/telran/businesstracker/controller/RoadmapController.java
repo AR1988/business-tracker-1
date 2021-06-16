@@ -1,7 +1,7 @@
 package de.telran.businesstracker.controller;
 
-import de.telran.businesstracker.data.Roadmap;
-import de.telran.businesstracker.dto.RoadmapDto;
+import de.telran.businesstracker.model.Roadmap;
+import de.telran.businesstracker.controller.dto.RoadmapDto;
 import de.telran.businesstracker.mapper.RoadmapMapper;
 import de.telran.businesstracker.service.RoadmapService;
 import org.springframework.http.HttpStatus;

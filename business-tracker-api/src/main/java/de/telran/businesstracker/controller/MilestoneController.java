@@ -1,26 +1,30 @@
 package de.telran.businesstracker.controller;
 
-import de.telran.businesstracker.data.Milestone;
-import de.telran.businesstracker.data.Task;
-import de.telran.businesstracker.dto.MilestoneDto;
-import de.telran.businesstracker.dto.TaskDto;
+import de.telran.businesstracker.model.Milestone;
+import de.telran.businesstracker.controller.dto.MilestoneDto;
 import de.telran.businesstracker.mapper.MilestoneMapper;
 import de.telran.businesstracker.service.MilestoneService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.HttpClientErrorException;
 
 import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("/api/milestone")
+@RequestMapping("/api/milestones")
 public class MilestoneController {
 
     private final MilestoneService milestoneService;
@@ -54,15 +58,6 @@ public class MilestoneController {
                 .map(milestoneMapper::toDto)
                 .collect(Collectors.toList());
     }
-
-    @GetMapping("/by")
-    public List<MilestoneDto> getKpiByParam(@RequestParam Map<String, String> params) {
-        List<Milestone> milestones = milestoneService.getAll();
-        String roadMapId = params.get("roadMapId");
-        long id = Long.parseLong(roadMapId);
-        return milestones.stream().filter(milestone -> milestone.getRoadmap().getId() == id).map(milestoneMapper::toDto).collect(Collectors.toList());
-    }
-
 
     @GetMapping("/{id}")
     public MilestoneDto getMilestone(@PathVariable Long id) {
